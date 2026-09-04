@@ -433,52 +433,7 @@ body::after{
   box-shadow:0 0 20px rgba(0,247,255,0.7);
 }
 /* ===== FLOATING HIRE ME BUTTON ===== */
-/* ===== FLOATING HIRE ME BUTTON ===== */
 
-.floating-hire{
-  position:fixed;
-  right:20px;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:200;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  width:140px;
-  height:55px;
-
-  border-radius:30px;
-
-  background:linear-gradient(
-    135deg,
-    var(--neon-cyan),
-    var(--neon-mag)
-  );
-
-  color:#001;
-  text-decoration:none;
-
-  font-family:"Orbitron", sans-serif;
-  font-weight:700;
-  font-size:18px;
-  letter-spacing:1px;
-  white-space:nowrap;
-
-  border:2px solid rgba(255,255,255,0.6);
-
-  box-shadow:
-    0 0 15px var(--neon-cyan),
-    0 0 30px var(--neon-mag);
-
-  animation:hirePulse 1.5s infinite;
-  transition:0.3s;
-}
-
-.floating-hire:hover{
-  transform:translateY(-50%) scale(1.1);
-}
 @media(max-width:600px){
 
   .container{
