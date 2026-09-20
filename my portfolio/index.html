@@ -571,6 +571,301 @@ button{font:inherit}
   font-size:2rem;
 }
 
+
+/* RESUME + SKILL VISUALS + GITHUB + TECH STACK */
+.resume-btn{
+  border-color:rgba(255,32,223,.45);
+  color:#ff74ed;
+}
+.resume-btn:hover{
+  color:#180019;
+  background:linear-gradient(100deg,var(--mag),#ff7bef);
+  box-shadow:0 0 24px rgba(255,32,223,.25);
+}
+.skill-category{
+  margin-bottom:22px;
+}
+.skill-category:last-child{margin-bottom:0}
+.skill-category-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+  color:#dffbff;
+  font:600 1rem "Orbitron";
+}
+.skill-category-title i{color:var(--cyan)}
+.skill-bars{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.skill-meter{
+  padding:14px;
+  border:1px solid rgba(0,247,255,.1);
+  border-radius:12px;
+  background:rgba(0,247,255,.025);
+}
+.skill-meter-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+.skill-name{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#e8fcff;
+  font-weight:600;
+  font-size:.88rem;
+}
+.skill-name i{color:var(--cyan);width:18px;text-align:center}
+.skill-level{
+  color:#75edf5;
+  font:600 .68rem "Orbitron";
+}
+.skill-track{
+  height:7px;
+  overflow:hidden;
+  border-radius:20px;
+  background:rgba(255,255,255,.07);
+}
+.skill-fill{
+  width:var(--level);
+  height:100%;
+  border-radius:20px;
+  background:linear-gradient(90deg,var(--cyan),#49dfff,var(--mag));
+  box-shadow:0 0 12px rgba(0,247,255,.35);
+  transform-origin:left;
+  animation:skillLoad 1.2s ease both;
+}
+@keyframes skillLoad{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+.tech-stack-section{overflow:hidden}
+.tech-marquee{
+  position:relative;
+  overflow:hidden;
+  margin:8px -28px 24px;
+  padding:13px 0;
+  border-top:1px solid rgba(0,247,255,.08);
+  border-bottom:1px solid rgba(0,247,255,.08);
+  background:rgba(0,247,255,.018);
+}
+.tech-track{
+  display:flex;
+  width:max-content;
+  gap:13px;
+  animation:techMove 24s linear infinite;
+}
+.tech-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 15px;
+  border:1px solid rgba(0,247,255,.18);
+  border-radius:11px;
+  color:#bffbff;
+  background:rgba(2,16,30,.72);
+  font:600 .78rem "Orbitron";
+  white-space:nowrap;
+  box-shadow:inset 0 0 16px rgba(0,247,255,.025);
+}
+.tech-chip i{color:var(--cyan);font-size:1rem}
+@keyframes techMove{to{transform:translateX(-50%)}}
+.learning-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+.learning-card{
+  padding:16px 12px;
+  text-align:center;
+  border:1px solid rgba(255,32,223,.14);
+  border-radius:13px;
+  background:linear-gradient(145deg,rgba(255,32,223,.035),rgba(0,247,255,.025));
+  transition:.3s ease;
+}
+.learning-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(255,32,223,.38);
+  box-shadow:0 14px 30px rgba(255,32,223,.07);
+}
+.learning-card i{
+  display:block;
+  margin-bottom:9px;
+  color:var(--mag);
+  font-size:1.45rem;
+}
+.learning-card strong{
+  display:block;
+  color:#e9fdff;
+  font:600 .76rem "Orbitron";
+}
+.learning-card span{
+  display:block;
+  margin-top:4px;
+  color:#7eaeb7;
+  font-size:.68rem;
+}
+
+.certificate-preview{
+  position:relative;
+  height:165px;
+  margin:-20px -20px 16px;
+  overflow:hidden;
+  border-bottom:1px solid rgba(0,247,255,.1);
+  background:#020b15;
+  cursor:pointer;
+}
+.certificate-preview img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:top center;
+  transition:.35s ease;
+}
+.certificate-preview::after{
+  content:"CLICK TO PREVIEW";
+  position:absolute;
+  inset:auto 10px 10px;
+  padding:7px 10px;
+  border:1px solid rgba(0,247,255,.25);
+  border-radius:8px;
+  color:#bffcff;
+  background:rgba(1,9,18,.72);
+  backdrop-filter:blur(7px);
+  text-align:center;
+  font:600 .62rem "Orbitron";
+  opacity:0;
+  transition:.25s ease;
+}
+.certificate-preview:hover img{transform:scale(1.04)}
+.certificate-preview:hover::after{opacity:1}
+.certificate-card .certificate-buttons{margin-top:auto}
+
+.github-profile{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:18px;
+  padding:18px;
+  border:1px solid rgba(0,247,255,.1);
+  border-radius:14px;
+  background:rgba(0,247,255,.025);
+}
+.github-profile-main{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.github-avatar{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:2px solid var(--cyan);
+  box-shadow:0 0 18px rgba(0,247,255,.25);
+}
+.github-profile h3{
+  color:#eaffff;
+  font:600 1rem "Orbitron";
+}
+.github-profile p{color:var(--muted);font-size:.8rem}
+.github-stats{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+.github-stat{
+  min-width:90px;
+  padding:8px 11px;
+  text-align:center;
+  border:1px solid rgba(0,247,255,.09);
+  border-radius:9px;
+  background:rgba(0,247,255,.025);
+}
+.github-stat strong{display:block;color:var(--cyan);font:700 .9rem "Orbitron"}
+.github-stat span{color:#719da6;font-size:.63rem}
+.github-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:15px;
+}
+.github-panel{
+  padding:17px;
+  border:1px solid rgba(0,247,255,.1);
+  border-radius:14px;
+  background:rgba(0,247,255,.02);
+}
+.github-panel h3{
+  margin-bottom:13px;
+  color:#dffbff;
+  font:600 .9rem "Orbitron";
+}
+.repo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.repo-card{
+  min-width:0;
+  padding:14px;
+  border:1px solid rgba(0,247,255,.09);
+  border-radius:11px;
+  background:rgba(0,247,255,.02);
+  transition:.25s ease;
+}
+.repo-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(0,247,255,.28);
+}
+.repo-card h4{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  margin-bottom:7px;
+  color:var(--cyan);
+  font:600 .78rem "Orbitron";
+}
+.repo-card p{
+  min-height:42px;
+  margin-bottom:9px;
+  color:#8ebac2;
+  font-size:.7rem;
+}
+.repo-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  color:#75a8b1;
+  font-size:.66rem;
+}
+.repo-lang{color:#ff75ed}
+.github-activity{
+  width:100%;
+  min-height:185px;
+  padding:8px;
+  object-fit:contain;
+  border:1px solid rgba(0,247,255,.08);
+  border-radius:10px;
+  background:#020b14;
+}
+.github-error{color:#87b4bb;font-size:.78rem}
+
+@media(max-width:900px){
+  .skill-bars{grid-template-columns:1fr}
+  .learning-grid{grid-template-columns:repeat(3,1fr)}
+  .github-grid{grid-template-columns:1fr}
+  .repo-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  .tech-marquee{margin-left:-16px;margin-right:-16px}
+  .learning-grid{grid-template-columns:1fr 1fr}
+  .repo-grid{grid-template-columns:1fr}
+  .github-profile{align-items:flex-start}
+  .certificate-preview{height:150px}
+}
+
 /* PROJECTS */
 .project-feature{
   margin-bottom:20px;
@@ -980,6 +1275,7 @@ button{font:inherit}
   *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
 }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 
 <body>
@@ -1005,6 +1301,8 @@ button{font:inherit}
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
+       <a href="#github">GitHub</a>
+       <a href="#tech-stack">Stack</a>
       <a href="#projects">Projects</a>
       <a href="#achievements">Achievements</a>
       <a href="#certificates">Certificates</a>
@@ -1053,6 +1351,8 @@ button{font:inherit}
       <div class="hero-actions">
         <a class="btn" href="#projects"><i class="fa-solid fa-folder-open"></i> Projects</a>
         <a class="btn magenta" href="#achievements"><i class="fa-solid fa-trophy"></i> Achievements</a>
+        <a class="btn resume-btn" href="documents/Abhaypratap-Sikarwar-Resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> View Resume</a>
+        <a class="btn" href="documents/Abhaypratap-Sikarwar-Resume.pdf" download><i class="fa-solid fa-download"></i> Download Resume</a>
         <a class="btn" href="#certificates"><i class="fa-solid fa-certificate"></i> Certificates</a>
         <a class="btn magenta" href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
       </div>
@@ -1123,35 +1423,113 @@ button{font:inherit}
 
   <!-- SKILLS -->
   <section id="skills" class="section fade-in">
-    <div class="eyebrow">TECH STACK</div>
+    <div class="eyebrow">CAPABILITIES</div>
     <h2>Skills</h2>
 
-    <div class="grid3">
-      <div class="skill-card">
-        <i class="fa-solid fa-code skill-icon"></i>
-        <strong>💻 Programming</strong>
-        • C, C++<br>
-        • Python<br>
-        • Microcontroller firmware<br>
-        • Serial communication
+    <div class="skill-category">
+      <div class="skill-category-title"><i class="fa-solid fa-code"></i> Programming & Development</div>
+      <div class="skill-bars">
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-solid fa-c"></i> C / C++</span><span class="skill-level">Intermediate</span></div><div class="skill-track"><div class="skill-fill" style="--level:72%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-brands fa-python"></i> Python</span><span class="skill-level">Beginner</span></div><div class="skill-track"><div class="skill-fill" style="--level:42%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-brands fa-html5"></i> HTML / CSS / JS</span><span class="skill-level">Intermediate</span></div><div class="skill-track"><div class="skill-fill" style="--level:62%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-solid fa-database"></i> SQL</span><span class="skill-level">Learning</span></div><div class="skill-track"><div class="skill-fill" style="--level:38%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-category-title"><i class="fa-solid fa-microchip"></i> Embedded & Hardware</div>
+      <div class="skill-bars">
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-solid fa-microchip"></i> ESP8266 / ESP32</span><span class="skill-level">Intermediate</span></div><div class="skill-track"><div class="skill-fill" style="--level:70%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-solid fa-microchip"></i> NodeMCU</span><span class="skill-level">Intermediate</span></div><div class="skill-track"><div class="skill-fill" style="--level:68%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-brands fa-raspberry-pi"></i> Raspberry Pi</span><span class="skill-level">Beginner</span></div><div class="skill-track"><div class="skill-fill" style="--level:48%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-solid fa-satellite-dish"></i> Sensors / IoT</span><span class="skill-level">Intermediate</span></div><div class="skill-track"><div class="skill-fill" style="--level:65%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-category-title"><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Workflow</div>
+      <div class="skill-bars">
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-brands fa-git-alt"></i> Git</span><span class="skill-level">Learning</span></div><div class="skill-track"><div class="skill-fill" style="--level:45%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-brands fa-github"></i> GitHub</span><span class="skill-level">Learning</span></div><div class="skill-track"><div class="skill-fill" style="--level:48%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-solid fa-code"></i> VS Code</span><span class="skill-level">Intermediate</span></div><div class="skill-track"><div class="skill-fill" style="--level:65%"></div></div></div>
+        <div class="skill-meter"><div class="skill-meter-head"><span class="skill-name"><i class="fa-solid fa-pen-ruler"></i> Figma</span><span class="skill-level">Beginner</span></div><div class="skill-track"><div class="skill-fill" style="--level:35%"></div></div></div>
+      </div>
+    </div>
+    <p style="color:#719da6;font-size:.7rem;margin-top:14px">* Progress bars are self-assessed learning levels, not test scores.</p>
+  </section>
+
+  <!-- TECH STACK -->
+  <section id="tech-stack" class="section fade-in tech-stack-section">
+    <div class="eyebrow">DEVELOPER SIGNAL</div>
+    <h2>Tech Stack & Currently Learning</h2>
+
+    <div class="tech-marquee" aria-label="Technology stack">
+      <div class="tech-track">
+        <span class="tech-chip"><i class="fa-solid fa-code"></i> C++</span>
+        <span class="tech-chip"><i class="fa-brands fa-python"></i> Python</span>
+        <span class="tech-chip"><i class="fa-brands fa-html5"></i> HTML</span>
+        <span class="tech-chip"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+        <span class="tech-chip"><i class="fa-brands fa-js"></i> JavaScript</span>
+        <span class="tech-chip"><i class="fa-solid fa-database"></i> SQL</span>
+        <span class="tech-chip"><i class="fa-solid fa-microchip"></i> ESP32</span>
+        <span class="tech-chip"><i class="fa-brands fa-git-alt"></i> Git</span>
+        <span class="tech-chip"><i class="fa-brands fa-github"></i> GitHub</span>
+        <span class="tech-chip"><i class="fa-solid fa-code"></i> C++</span>
+        <span class="tech-chip"><i class="fa-brands fa-python"></i> Python</span>
+        <span class="tech-chip"><i class="fa-brands fa-html5"></i> HTML</span>
+        <span class="tech-chip"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+        <span class="tech-chip"><i class="fa-brands fa-js"></i> JavaScript</span>
+        <span class="tech-chip"><i class="fa-solid fa-database"></i> SQL</span>
+        <span class="tech-chip"><i class="fa-solid fa-microchip"></i> ESP32</span>
+        <span class="tech-chip"><i class="fa-brands fa-git-alt"></i> Git</span>
+        <span class="tech-chip"><i class="fa-brands fa-github"></i> GitHub</span>
+      </div>
+    </div>
+
+    <div class="eyebrow">CURRENTLY LEARNING</div>
+    <div class="learning-grid">
+      <div class="learning-card"><i class="fa-brands fa-python"></i><strong>Python</strong><span>Programming</span></div>
+      <div class="learning-card"><i class="fa-solid fa-diagram-project"></i><strong>DSA</strong><span>Problem Solving</span></div>
+      <div class="learning-card"><i class="fa-solid fa-layer-group"></i><strong>Full Stack</strong><span>Web Development</span></div>
+      <div class="learning-card"><i class="fa-solid fa-database"></i><strong>SQL</strong><span>Databases</span></div>
+      <div class="learning-card"><i class="fa-solid fa-plug"></i><strong>APIs</strong><span>Backend Integration</span></div>
+    </div>
+  </section>
+
+  <!-- GITHUB -->
+  <section id="github" class="section fade-in">
+    <div class="eyebrow">OPEN SOURCE PROFILE</div>
+    <h2>My GitHub</h2>
+
+    <div class="github-profile">
+      <div class="github-profile-main">
+        <img id="githubAvatar" class="github-avatar" src="https://github.com/abhaypratap1278.png" alt="Abhaypratap Sikarwar GitHub avatar">
+        <div>
+          <h3>abhaypratap1278</h3>
+          <p>Code • Projects • Experiments • Learning in public</p>
+        </div>
+      </div>
+      <div class="github-stats">
+        <div class="github-stat"><strong id="githubRepos">—</strong><span>Repositories</span></div>
+        <div class="github-stat"><strong id="githubFollowers">—</strong><span>Followers</span></div>
+        <a class="cert-btn" href="https://github.com/abhaypratap1278" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Open Profile</a>
+      </div>
+    </div>
+
+    <div class="github-grid">
+      <div class="github-panel">
+        <h3><i class="fa-solid fa-code-branch"></i> Featured Repositories</h3>
+        <div id="repoGrid" class="repo-grid">
+          <div class="repo-card"><h4>Loading...</h4><p>Fetching public repositories from GitHub.</p></div>
+          <div class="repo-card"><h4>Loading...</h4><p>Please wait...</p></div>
+          <div class="repo-card"><h4>Loading...</h4><p>Please wait...</p></div>
+        </div>
+        <p id="githubError" class="github-error" hidden>GitHub data could not be loaded right now. Use the profile button above to view the latest repositories.</p>
       </div>
 
-      <div class="skill-card">
-        <i class="fa-solid fa-microchip skill-icon"></i>
-        <strong>⚡ Hardware & Electronics</strong>
-        • ESP8266 / ESP32<br>
-        • NodeMCU<br>
-        • Raspberry Pi<br>
-        • Sensors & PCB Basics
-      </div>
-
-      <div class="skill-card">
-        <i class="fa-solid fa-terminal skill-icon"></i>
-        <strong>🛠️ Web & Tools</strong>
-        • HTML / CSS / JS<br>
-        • Git & VS Code<br>
-        • Linux Basics<br>
-        • Figma
+      <div class="github-panel">
+        <h3><i class="fa-solid fa-chart-line"></i> GitHub Activity</h3>
+        <img class="github-activity" src="https://ghchart.rshah.org/00f7ff/abhaypratap1278" alt="GitHub contribution activity for abhaypratap1278" loading="lazy">
       </div>
     </div>
   </section>
@@ -1288,29 +1666,32 @@ button{font:inherit}
 
     <div class="certificates-grid">
       <div class="certificate-card">
+        <div class="certificate-preview pdf-preview" data-pdf="certificates/iitb-techfest-certificate.pdf" role="button" tabindex="0" aria-label="Preview IIT Bombay Techfest Certificate preview"><canvas aria-label="IIT Bombay Techfest Certificate preview"></canvas></div>
         <h3>IIT Bombay Techfest Certificate</h3>
         <p>Certificate related to participation and qualification in IIT Bombay Techfest.</p>
         <div class="certificate-buttons">
-          <a href="certificates/iitb-techfest-certificate.pdf" target="_blank" rel="noopener" class="cert-btn">View Certificate</a>
-          <a href="certificates/iitb-techfest-certificate.pdf" download class="cert-btn">Download</a>
+          <a href="certificates/iitb-techfest-certificate.pdf" target="_blank" rel="noopener" class="cert-btn"><i class="fa-solid fa-eye"></i> View Certificate</a>
+          <a href="certificates/iitb-techfest-certificate.pdf" download class="cert-btn"><i class="fa-solid fa-download"></i> Download</a>
         </div>
       </div>
 
       <div class="certificate-card">
+        <div class="certificate-preview pdf-preview" data-pdf="certificates/tech-for-seva-certificate.pdf" role="button" tabindex="0" aria-label="Preview Tech For Seva Certificate preview"><canvas aria-label="Tech For Seva Certificate preview"></canvas></div>
         <h3>Tech For Seva Certificate</h3>
         <p>Certificate of participation in the Tech For Seva national-level event.</p>
         <div class="certificate-buttons">
-          <a href="certificates/tech-for-seva-certificate.pdf" target="_blank" rel="noopener" class="cert-btn">View Certificate</a>
-          <a href="certificates/tech-for-seva-certificate.pdf" download class="cert-btn">Download</a>
+          <a href="certificates/tech-for-seva-certificate.pdf" target="_blank" rel="noopener" class="cert-btn"><i class="fa-solid fa-eye"></i> View Certificate</a>
+          <a href="certificates/tech-for-seva-certificate.pdf" download class="cert-btn"><i class="fa-solid fa-download"></i> Download</a>
         </div>
       </div>
 
       <div class="certificate-card">
+        <div class="certificate-preview pdf-preview" data-pdf="certificates/technoparv-certificate.pdf" role="button" tabindex="0" aria-label="Preview Technoparv Certificate preview"><canvas aria-label="Technoparv Certificate preview"></canvas></div>
         <h3>Techno Parv 2k26 Certificate</h3>
         <p>Certificate received for achieving 1st Position in Technoparv at SRIIT College, Banmore.</p>
         <div class="certificate-buttons">
-          <a href="certificates/technoparv-certificate.pdf" target="_blank" rel="noopener" class="cert-btn">View Certificate</a>
-          <a href="certificates/technoparv-certificate.pdf" download class="cert-btn">Download</a>
+          <a href="certificates/technoparv-certificate.pdf" target="_blank" rel="noopener" class="cert-btn"><i class="fa-solid fa-eye"></i> View Certificate</a>
+          <a href="certificates/technoparv-certificate.pdf" download class="cert-btn"><i class="fa-solid fa-download"></i> Download</a>
         </div>
       </div>
     </div>
@@ -1455,8 +1836,10 @@ const closePopup=document.getElementById("closePopup");
 
 document.querySelectorAll(".popup-image").forEach(image=>{
   image.addEventListener("click",()=>{
-    popupImg.src=image.src;
-    popupImg.alt=image.alt||"Full image preview";
+    const source=image.dataset.full || image.currentSrc || image.src || image.querySelector("img")?.currentSrc;
+    const preview=image.querySelector?.("img");
+    popupImg.src=source;
+    popupImg.alt=image.alt || preview?.alt || "Full image preview";
     popup.classList.add("show");
     document.body.style.overflow="hidden";
   });
@@ -1474,6 +1857,80 @@ document.addEventListener("keydown",e=>{
   if(e.key==="Escape") closeImagePopup();
 });
 
+
+/* GITHUB PROFILE + REPOSITORIES */
+const githubUser="abhaypratap1278";
+const repoGrid=document.getElementById("repoGrid");
+const githubError=document.getElementById("githubError");
+
+async function loadGitHub(){
+  try{
+    const [profileResponse,reposResponse]=await Promise.all([
+      fetch(`https://api.github.com/users/${githubUser}`),
+      fetch(`https://api.github.com/users/${githubUser}/repos?per_page=100&sort=updated`)
+    ]);
+    if(!profileResponse.ok || !reposResponse.ok) throw new Error("GitHub API unavailable");
+    const profile=await profileResponse.json();
+    const repos=await reposResponse.json();
+
+    document.getElementById("githubRepos").textContent=profile.public_repos ?? "—";
+    document.getElementById("githubFollowers").textContent=profile.followers ?? "—";
+    if(profile.avatar_url) document.getElementById("githubAvatar").src=profile.avatar_url;
+
+    const featured=repos
+      .filter(repo=>!repo.fork)
+      .sort((a,b)=>(b.stargazers_count-a.stargazers_count)||(new Date(b.updated_at)-new Date(a.updated_at)))
+      .slice(0,3);
+
+    if(!featured.length){
+      repoGrid.innerHTML='<div class="repo-card"><h4>No public repositories yet</h4><p>Repositories will appear here automatically when they are public.</p></div>';
+      return;
+    }
+
+    repoGrid.innerHTML=featured.map(repo=>`
+      <a class="repo-card" href="${repo.html_url}" target="_blank" rel="noopener" style="text-decoration:none">
+        <h4 title="${repo.name}">${repo.name}</h4>
+        <p>${repo.description ? repo.description.replace(/</g,"&lt;").slice(0,95) : "Public GitHub repository."}</p>
+        <div class="repo-meta">
+          <span class="repo-lang">${repo.language || "Code"}</span>
+          <span>★ ${repo.stargazers_count} · ${repo.forks_count} forks</span>
+        </div>
+      </a>
+    `).join("");
+  }catch(error){
+    repoGrid.innerHTML="";
+    githubError.hidden=false;
+  }
+}
+loadGitHub();
+
+
+/* CERTIFICATE PDF THUMBNAILS */
+if(window.pdfjsLib){
+  pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  document.querySelectorAll(".pdf-preview").forEach(async preview=>{
+    const canvas=preview.querySelector("canvas");
+    try{
+      const pdf=await pdfjsLib.getDocument(preview.dataset.pdf).promise;
+      const page=await pdf.getPage(1);
+      const box=preview.getBoundingClientRect();
+      const baseViewport=page.getViewport({scale:1});
+      const scale=Math.max(box.width/baseViewport.width, box.height/baseViewport.height);
+      const viewport=page.getViewport({scale});
+      const dpr=Math.min(window.devicePixelRatio||1,2);
+      canvas.width=Math.floor(viewport.width*dpr);
+      canvas.height=Math.floor(viewport.height*dpr);
+      canvas.style.width=viewport.width+"px";
+      canvas.style.height=viewport.height+"px";
+      canvas.style.display="block";
+      canvas.style.objectFit="cover";
+      const context=canvas.getContext("2d");
+      await page.render({canvasContext:context,viewport,transform:[dpr,0,0,dpr,0,0]}).promise;
+    }catch(error){
+      preview.innerHTML='<div style="height:100%;display:flex;align-items:center;justify-content:center;color:#78b4bd;font:600 .72rem Orbitron;text-align:center;padding:20px">CERTIFICATE PREVIEW<br>OPEN PDF BELOW</div>';
+    }
+  });
+}
 /* LIGHTWEIGHT PARTICLE NETWORK */
 const canvas=document.getElementById("bg-animation");
 const ctx=canvas.getContext("2d");
