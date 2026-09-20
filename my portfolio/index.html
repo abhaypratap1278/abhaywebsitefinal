@@ -73,44 +73,157 @@ button{font:inherit}
   pointer-events:none;
 }
 
-/* PRELOADER */
-#preloader{
+/* FUTURISTIC CYBER PRELOADER */
+#cyber-preloader{
   position:fixed;
   inset:0;
-  z-index:99999;
+  z-index:999999;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at center,rgba(0,220,255,.08),transparent 35%),
+    radial-gradient(circle at 70% 50%,rgba(255,0,220,.06),transparent 35%),
+    #020611;
+  color:#00eaff;
+  font-family:"Courier New",monospace;
+  transition:opacity .8s ease,visibility .8s ease;
+}
+#cyber-preloader.preloader-hidden{opacity:0;visibility:hidden;pointer-events:none}
+#cyber-preloader .pre-grid{
+  position:absolute;
+  inset:-35%;
+  opacity:.22;
+  background-image:
+    linear-gradient(rgba(0,234,255,.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.18) 1px,transparent 1px);
+  background-size:55px 55px;
+  transform:perspective(500px) rotateX(58deg) translateY(8%);
+  transform-origin:center bottom;
+  animation:gridMove 8s linear infinite;
+}
+@keyframes gridMove{to{background-position:0 55px,55px 0}}
+#cyber-preloader .scan-line{
+  position:absolute;
+  left:0;
+  right:0;
+  top:-5%;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(0,234,255,.85),transparent);
+  box-shadow:0 0 18px rgba(0,234,255,.7);
+  opacity:.65;
+  animation:scanMove 3.8s linear infinite;
+}
+@keyframes scanMove{to{top:105%}}
+#cyber-preloader .pre-particles{position:absolute;inset:0;pointer-events:none}
+#cyber-preloader .hud-core{
+  position:relative;
+  z-index:4;
+  width:360px;
+  height:360px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:18px;
-  background:#010712;
-  transition:opacity .6s ease,visibility .6s ease;
-}
-#preloader.hide{opacity:0;visibility:hidden}
-.preloader-logo{
-  font:700 1rem "Orbitron";
-  color:var(--cyan);
-  letter-spacing:3px;
   text-align:center;
-  text-shadow:0 0 20px rgba(0,247,255,.65);
 }
-.preloader-bar{
-  width:min(280px,72vw);
-  height:4px;
-  overflow:hidden;
-  border-radius:20px;
-  background:rgba(255,255,255,.08);
+#cyber-preloader .hud-ring{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
 }
-.preloader-bar i{
-  display:block;
-  width:35%;
-  height:100%;
-  background:linear-gradient(90deg,var(--cyan),var(--mag));
-  box-shadow:0 0 15px var(--cyan);
-  animation:loader 1.4s linear infinite;
+#cyber-preloader .ring-1{inset:0;border:1px solid rgba(0,234,255,.32);box-shadow:0 0 30px rgba(0,234,255,.08);animation:spin 12s linear infinite}
+#cyber-preloader .ring-2{inset:25px;border:1px dashed rgba(255,32,223,.38);animation:spinReverse 9s linear infinite}
+#cyber-preloader .ring-3{inset:58px;border:1px solid rgba(0,234,255,.18);box-shadow:inset 0 0 30px rgba(0,234,255,.05);animation:spin 7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spinReverse{to{transform:rotate(-360deg)}}
+#cyber-preloader .hud-ticks{
+  position:absolute;
+  inset:8px;
+  border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,rgba(0,234,255,.5) 0deg 1deg,transparent 1deg 15deg);
+  -webkit-mask:radial-gradient(circle,transparent 0 46%,#000 46.5% 48%,transparent 48.5%);
+  mask:radial-gradient(circle,transparent 0 46%,#000 46.5% 48%,transparent 48.5%);
+  opacity:.55;
 }
-@keyframes loader{from{transform:translateX(-140%)}to{transform:translateX(420%)}}
-
+#cyber-preloader .ap-logo{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  width:92px;
+  height:92px;
+  border:1px solid rgba(0,234,255,.55);
+  border-radius:50%;
+  background:rgba(0,234,255,.035);
+  box-shadow:0 0 28px rgba(0,234,255,.22),inset 0 0 25px rgba(0,234,255,.06);
+  animation:apPulse 2s ease-in-out infinite;
+}
+#cyber-preloader .ap-logo span{font:700 2.1rem "Orbitron",monospace;color:#eaffff;text-shadow:0 0 14px #00eaff}
+#cyber-preloader .ap-logo span+span{color:#ff5ceb}
+@keyframes apPulse{50%{transform:scale(1.04);box-shadow:0 0 45px rgba(0,234,255,.35),inset 0 0 30px rgba(0,234,255,.08)}}
+#cyber-preloader .hud-name{margin-top:17px;color:#dffcff;font:700 1.05rem "Orbitron",monospace;letter-spacing:3px;text-shadow:0 0 16px rgba(0,234,255,.5)}
+#cyber-preloader .hud-name small{display:block;margin-top:3px;color:#ff62ea;font-size:.72rem;letter-spacing:4px}
+#cyber-preloader .hud-status{margin-top:9px;color:#6ff6ff;font:600 .62rem "Orbitron",monospace;letter-spacing:2px;animation:statusBlink 1s steps(2,end) infinite}
+@keyframes statusBlink{50%{opacity:.35}}
+#cyber-preloader .boot-panel{
+  position:absolute;
+  z-index:5;
+  width:310px;
+  padding:15px;
+  border:1px solid rgba(0,234,255,.22);
+  background:rgba(1,12,24,.68);
+  box-shadow:inset 0 0 25px rgba(0,234,255,.025),0 0 25px rgba(0,0,0,.25);
+  backdrop-filter:blur(5px);
+}
+#cyber-preloader .boot-panel::before{content:"";position:absolute;top:-1px;left:12px;width:65px;height:1px;background:#00eaff;box-shadow:0 0 10px #00eaff}
+#cyber-preloader .boot-left{left:35px;top:38px}
+#cyber-preloader .panel-title{margin-bottom:10px;color:#dffcff;font:700 .72rem "Orbitron",monospace;letter-spacing:1.5px}
+#cyber-preloader .boot-line{display:flex;justify-content:space-between;gap:10px;margin:6px 0;color:#78cbd3;font-size:.67rem}
+#cyber-preloader .boot-line b{color:#66ffb2;font-weight:700;white-space:nowrap}
+#cyber-preloader .skills-panel{right:35px;top:38px}
+#cyber-preloader .skill-row{display:grid;grid-template-columns:105px 1fr 38px;align-items:center;gap:8px;margin:8px 0;color:#83d9e1;font-size:.65rem}
+#cyber-preloader .skill-row b{color:#ff70ed;text-align:right;font-size:.62rem}
+#cyber-preloader .skill-bar{height:5px;overflow:hidden;border:1px solid rgba(0,234,255,.2);background:rgba(255,255,255,.04)}
+#cyber-preloader .skill-bar i{display:block;width:100%;height:100%;background:linear-gradient(90deg,#00eaff,#ff20df);box-shadow:0 0 9px rgba(0,234,255,.5);transform-origin:left;animation:skillLoad 1.5s ease both}
+@keyframes skillLoad{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+#cyber-preloader .quote-panel{left:35px;bottom:78px;width:310px;color:#75cbd3;font-size:.7rem;line-height:1.7}
+#cyber-preloader .quote-panel span{color:#ff4ce5;font-size:1rem}
+#cyber-preloader .quote-panel strong{color:#eaffff}
+#cyber-preloader .tech-panel{position:absolute;right:35px;bottom:75px;z-index:5;display:grid;gap:7px;width:150px;color:#73cbd4;font:700 .65rem "Orbitron",monospace;letter-spacing:1px}
+#cyber-preloader .tech-panel div{padding:7px 9px;border-left:2px solid #00eaff;background:rgba(0,234,255,.035)}
+#cyber-preloader .tech-panel div:nth-child(even){border-left-color:#ff20df}
+#cyber-preloader .tech-panel span{margin-left:7px;color:#dffcff}
+#cyber-preloader .loading-section{position:absolute;z-index:8;left:50%;bottom:28px;width:min(460px,70vw);transform:translateX(-50%);text-align:center}
+#cyber-preloader .loading-text{margin-bottom:7px;color:#bdfcff;font:700 .67rem "Orbitron",monospace;letter-spacing:2px}
+#cyber-preloader .dots{display:inline-block;width:18px;text-align:left;animation:dotsBlink 1s steps(4,end) infinite}
+@keyframes dotsBlink{0%{opacity:.25}50%{opacity:1}100%{opacity:.25}}
+#cyber-preloader .loading-bar{height:8px;overflow:hidden;border:1px solid rgba(0,234,255,.3);background:rgba(255,255,255,.035);box-shadow:0 0 15px rgba(0,234,255,.06)}
+#cyber-preloader .loading-progress{width:0;height:100%;background:linear-gradient(90deg,#00eaff,#4ce4ff,#ff20df);box-shadow:0 0 15px rgba(0,234,255,.5);transition:width .12s linear}
+#cyber-preloader .loading-percent{margin-top:6px;color:#ff70ed;font:700 .7rem "Orbitron",monospace;letter-spacing:1px}
+#cyber-preloader .bottom-left,#cyber-preloader .bottom-right{position:absolute;bottom:18px;z-index:5;color:rgba(116,220,228,.48);font:600 .54rem "Orbitron",monospace;letter-spacing:1.4px}
+#cyber-preloader .bottom-left{left:35px}
+#cyber-preloader .bottom-right{right:35px;color:rgba(255,96,232,.48)}
+@media(max-width:900px){
+  #cyber-preloader .boot-panel,#cyber-preloader .quote-panel,#cyber-preloader .tech-panel,#cyber-preloader .bottom-left,#cyber-preloader .bottom-right{display:none}
+  #cyber-preloader .hud-core{width:320px;height:320px}
+  #cyber-preloader .loading-section{width:min(420px,78vw);bottom:32px}
+}
+@media(max-width:450px){
+  #cyber-preloader .hud-core{width:265px;height:265px}
+  #cyber-preloader .ring-2{inset:20px}
+  #cyber-preloader .ring-3{inset:45px}
+  #cyber-preloader .ap-logo{width:76px;height:76px}
+  #cyber-preloader .ap-logo span{font-size:1.7rem}
+  #cyber-preloader .hud-name{font-size:.82rem;letter-spacing:2.3px}
+  #cyber-preloader .hud-name small{font-size:.6rem;letter-spacing:3px}
+  #cyber-preloader .hud-status{font-size:.52rem}
+  #cyber-preloader .loading-section{width:84vw;bottom:22px}
+  #cyber-preloader .loading-text{font-size:.57rem;letter-spacing:1.2px}
+}
 /* NAVBAR */
 .header{
   position:fixed;
@@ -263,9 +376,13 @@ button{font:inherit}
   color:var(--mag);
 }
 .fade-in{
-  opacity:0;
-  transform:translateY(16px);
-  transition:opacity .7s ease,transform .7s ease;
+  /* Keep sections rendered while scrolling; animate only their position.
+     Hiding them with opacity:0 can cause a blank/white flash during
+     browser compositing on long pages. */
+  opacity:1;
+  transform:translateY(10px);
+  transition:transform .55s ease;
+  will-change:transform;
 }
 .fade-in.show{opacity:1;transform:none}
 
@@ -853,6 +970,7 @@ button{font:inherit}
 .github-error{color:#87b4bb;font-size:.78rem}
 
 @media(max-width:900px){
+  .fade-in{opacity:1;transform:none;transition:none}
   .skill-bars{grid-template-columns:1fr}
   .learning-grid{grid-template-columns:repeat(3,1fr)}
   .github-grid{grid-template-columns:1fr}
@@ -1281,10 +1399,61 @@ button{font:inherit}
 <body>
 <canvas id="bg-animation"></canvas>
 
-<div id="preloader">
-  <div class="preloader-logo">CODE • CREATE • INNOVATE</div>
-  <div class="preloader-bar"><i></i></div>
+<!-- ================= FUTURISTIC PRELOADER ================= -->
+<div id="cyber-preloader">
+  <div class="pre-grid"></div>
+  <div class="scan-line"></div>
+  <div class="pre-particles"></div>
+
+  <div class="boot-panel boot-left">
+    <div class="panel-title">&lt; SYSTEM BOOT &gt;</div>
+    <div class="boot-line"><span>&gt; Initializing Hardware</span><b>[ OK ]</b></div>
+    <div class="boot-line"><span>&gt; Loading OS Modules</span><b>[ OK ]</b></div>
+    <div class="boot-line"><span>&gt; Setting Up Environment</span><b>[ OK ]</b></div>
+    <div class="boot-line"><span>&gt; Loading Portfolio Assets</span><b>[ OK ]</b></div>
+    <div class="boot-line"><span>&gt; Connecting Network</span><b>[ OK ]</b></div>
+    <div class="boot-line"><span>&gt; Launching Interface</span><b>[ OK ]</b></div>
+  </div>
+
+  <div class="hud-core">
+    <div class="hud-ring ring-1"></div>
+    <div class="hud-ring ring-2"></div>
+    <div class="hud-ring ring-3"></div>
+    <div class="hud-ticks"></div>
+    <div class="ap-logo"><span>A</span><span>P</span></div>
+    <div class="hud-name">ABHAYPRATAP<small>SIKARWAR</small></div>
+    <div class="hud-status">SYSTEM INITIALIZING</div>
+  </div>
+
+  <div class="boot-panel skills-panel">
+    <div class="panel-title">SKILLS LOADING...</div>
+    <div class="skill-row"><span>C / C++</span><div class="skill-bar"><i></i></div><b>100%</b></div>
+    <div class="skill-row"><span>Python</span><div class="skill-bar"><i></i></div><b>100%</b></div>
+    <div class="skill-row"><span>Web Development</span><div class="skill-bar"><i></i></div><b>100%</b></div>
+    <div class="skill-row"><span>Problem Solving</span><div class="skill-bar"><i></i></div><b>100%</b></div>
+  </div>
+
+  <div class="boot-panel quote-panel">
+    <span>"</span> Building Better Solutions<br>for a <strong>Smarter Tomorrow</strong> <span>"</span>
+  </div>
+
+  <div class="tech-panel">
+    <div>⌘ <span>CODE</span></div>
+    <div>⚙ <span>BUILD</span></div>
+    <div>◉ <span>SOLVE</span></div>
+    <div>🚀 <span>GROW</span></div>
+  </div>
+
+  <div class="loading-section">
+    <div class="loading-text">LOADING MY PORTFOLIO<span class="dots">...</span></div>
+    <div class="loading-bar"><div class="loading-progress"></div></div>
+    <div class="loading-percent"><span id="preloaderPercent">0</span>%</div>
+  </div>
+
+  <div class="bottom-left">ENGINEER / DEVELOPER / PROBLEM SOLVER</div>
+  <div class="bottom-right">DREAM • PLAN • BUILD • IMPACT</div>
 </div>
+<!-- ============== END FUTURISTIC PRELOADER ============== -->
 
 <header class="header">
   <nav class="navbar">
@@ -1543,7 +1712,7 @@ Currently exploring  <strong>Data Structures & Algorithms</strong>,   <strong>RE
     </div>
   </section>
 
-  <!-- PROJECTS -->
+   <!-- PROJECTS -->
   <section id="projects" class="section fade-in">
     <div class="eyebrow">ENGINEERING WORK</div>
     <h2>Projects</h2>
@@ -1767,7 +1936,8 @@ Currently exploring  <strong>Data Structures & Algorithms</strong>,   <strong>RE
     </div>
   </section>
 
-  <!-- ACHIEVEMENTS -->
+
+   <!-- ACHIEVEMENTS -->
   <section id="achievements" class="section fade-in">
     <div class="eyebrow">MILESTONES</div>
     <h2>Achievements</h2>
@@ -1987,9 +2157,37 @@ Currently exploring  <strong>Data Structures & Algorithms</strong>,   <strong>RE
 </div>
 
 <script>
-/* PRELOADER */
-window.addEventListener("load",()=>{
-  setTimeout(()=>document.getElementById("preloader").classList.add("hide"),350);
+/* FUTURISTIC PRELOADER */
+document.addEventListener("DOMContentLoaded",()=>{
+  const preloader=document.getElementById("cyber-preloader");
+  const progress=document.querySelector("#cyber-preloader .loading-progress");
+  const percent=document.getElementById("preloaderPercent");
+  if(!preloader||!progress||!percent) return;
+
+  document.body.style.overflow="hidden";
+  let value=0;
+
+  const loading=setInterval(()=>{
+    value+=Math.floor(Math.random()*3)+1;
+
+    if(value>=100){
+      value=100;
+      clearInterval(loading);
+      percent.textContent=value;
+      progress.style.width=value+"%";
+
+      setTimeout(()=>{
+        preloader.classList.add("preloader-hidden");
+        document.body.style.overflow="";
+
+        setTimeout(()=>preloader.remove(),900);
+      },500);
+      return;
+    }
+
+    percent.textContent=value;
+    progress.style.width=value+"%";
+  },45);
 });
 
 /* MOBILE NAV */
